@@ -297,7 +297,7 @@
         $product_id = $_POST['product_id'];
 
         // Make API call
-        $url = 'http://localhost:5000/predict';
+        $url = 'http://127.0.0.1:5000/predict';
         $data = array('date' => $date, 'product_id' => $product_id);
 
         // Use cURL to make the POST request
