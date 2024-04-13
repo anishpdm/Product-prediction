@@ -13,6 +13,7 @@ app = Flask(__name__)
 def predict():
     # Get the request data
     req_data = request.json
+    print("called")
     
     # Validate the request data
     if not req_data:
@@ -22,6 +23,7 @@ def predict():
     try:
         # Extract date and product_id from the request data
         date_str = req_data.get('date')
+        print(date_str)
         product_id = req_data.get('product_id')
         
         # Convert date string to datetime object
