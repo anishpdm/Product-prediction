@@ -9,7 +9,7 @@ model = joblib.load('inventory_model.pkl')
 app = Flask(__name__)
 # Define a route for prediction
 @app.route('/test', methods=['GET'])
-def predict():
+def predict1():
     return jsonify({'TEST': "test app"})
 
 
