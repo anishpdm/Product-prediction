@@ -293,8 +293,8 @@
     // Check if the form is submitted
     if (isset($_POST['predictBtn'])) {
         // Get input values
-        $date = $_POST['date'];
-        $product_id = $_POST['product_id'];
+        echo $date = $_POST['date'];
+        echo $product_id = $_POST['product_id'];
 
         // Make API call
         $url = 'http://127.0.0.1:5000/predict';
@@ -307,7 +307,7 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Get the response
-        $response = curl_exec($ch);
+        echo $response = curl_exec($ch);
 
         // Check for errors
         if(curl_errno($ch)) {
