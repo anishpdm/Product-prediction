@@ -303,20 +303,31 @@
         // Use cURL to make the POST request
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Get the response
         $response = curl_exec($ch);
 
-        // Close cURL session
-        curl_close($ch);
+        // Check for errors
+        if(curl_errno($ch)) {
+            $error_message = curl_error($ch);
+            // Handle cURL error
+            echo "cURL Error: $error_message";
+        } else {
+            // Close cURL session
+            curl_close($ch);
 
-        // Display prediction result
-        echo '<div>';
-        echo '<h3>Predicted Sales Quantities:</h3>';
-        echo '<p>' . $response . '</p>';
-        echo '</div>';
-        echo "<script> alert($response) </script>";
+            // Decode JSON response
+            $decoded_response = json_decode($response, true);
+
+            // Display prediction result
+            echo '<div>';
+            echo '<h3>Predicted Sales Quantities:</h3>';
+            echo '<p>' . $decoded_response['predicted_sales'] . '</p>';
+            echo '</div>';
+            // You can also use the response data in JavaScript
+            echo "<script> alert('Predicted sales: " . $decoded_response['predicted_sales'] . "') </script>";
+        }
     }
-    ?>
+?>
