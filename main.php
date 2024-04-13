@@ -294,7 +294,7 @@
 <?php
   if (isset($_POST['predictBtn1'])) {
     echo "tets";
-    $url = 'http://127.0.0.1:5000/test';
+    $url = 'http://127.0.0.1:5001/test';
     $response = file_get_contents($url);
 
     // Check if the request was successful
@@ -315,7 +315,7 @@
         echo $product_id = $_POST['product_id'];
 
         // Make API call
-        $url = 'http://127.0.0.1:5000/predict';
+        $url = 'http://127.0.0.1:5001/predict';
         $data = array('date' => $date, 'product_id' => $product_id);
 
         // Use cURL to make the POST request
