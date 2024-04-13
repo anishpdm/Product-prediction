@@ -78,6 +78,8 @@
 
 <input type="date" name="date" class="form-control">
                 <br>
+                <button class="btn btn-warning me-3 btn-lg" type="submit" name="predictBtn1">Test</button>
+
                 <button class="btn btn-warning me-3 btn-lg" type="submit" name="predictBtn">Forecast product demand</button>
 
                 <!-- <a class="btn btn-warning me-3 btn-lg" href="#!" role="button"> Forecast product demand</a> -->
@@ -290,6 +292,22 @@
 
 
 <?php
+  if (isset($_POST['predictBtn1'])) {
+    echo "tets";
+    $url = 'http://127.0.0.1:5000/test';
+    $response = file_get_contents($url);
+
+    // Check if the request was successful
+    if ($response === FALSE) {
+        // Handle error
+        echo "Error occurred while fetching data from Flask endpoint";
+    } else {
+        // Display the response from the Flask endpoint
+        echo "Response from Flask endpoint: " . $response;
+    }
+
+
+  }
     // Check if the form is submitted
     if (isset($_POST['predictBtn'])) {
         // Get input values
