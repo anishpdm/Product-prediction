@@ -2,50 +2,35 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import joblib
 
+# Load the trained model
+model = joblib.load('inventory_model.pkl')
+
 # Create a Flask app
 app = Flask(__name__)
-
-# Define a route for testing the app
-@app.route('/test', methods=['GET'])
-def test():
-    return jsonify({'message': 'Test successful'}), 200
 
 # Define a route for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
-    print(" Api CALLED ")
-    # Load the trained model
     try:
-        model = joblib.load('inventory_model.pkl')
-    except Exception as e:
-        return jsonify({'error': f'Failed to load model: {e}'}), 500
+        # Get the request data as JSON
+        req_data = request.json
 
-    # Get the request data
-    req_data = request.json
-    print(req_data)
-    
-    # Validate the request data
-    if not req_data:
-        return jsonify({'error': 'No data provided'}), 400
-    
-    # Parse input data into a DataFrame
-    try:
-        print(" Date ")
-        # Extract date and product_id from the request data
+        # Validate the request data
+        if not req_data:
+            return jsonify({'error': 'No data provided'}), 400
+
+        # Extract input features from the JSON data
         date_str = req_data.get('date')
         product_id = req_data.get('product_id')
 
-        print(date_str)
-        print(product_id)
-        
         # Convert date string to datetime object
         date = pd.to_datetime(date_str, format='%m/%d/%Y')
-        
+
         # Extract features from the date
         month = date.month
         day = date.day
         day_of_week = date.dayofweek
-        
+
         # Create a DataFrame with the extracted features and product_id
         new_data = pd.DataFrame({
             'month': [month],
@@ -53,14 +38,14 @@ def predict():
             'day_of_week': [day_of_week],
             'product_id': [product_id]
         })
+
+        # Make predictions using the loaded model
+        predictions = model.predict(new_data)
+
+        # Return the predictions
+        return jsonify({'predictions': predictions.tolist()}), 200
     except Exception as e:
-        return jsonify({'error': f'Invalid input data format: {e}'}), 400
-    
-    # Make predictions using the loaded model
-    predictions = model.predict(new_data)
-    
-    # Return the predictions
-    return jsonify({'predictions': predictions.tolist()}), 200
+        return jsonify({'error': f'An error occurred: {e}'}), 500
 
 # Run the Flask app
 if __name__ == '__main__':
