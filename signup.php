@@ -58,19 +58,20 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6 text-md-start text-center py-6">
-            
-                <label for="" class="form-label">Name</label>
-                <input type="text" class="form-control">
-                <label for="" class="form-label">Email Id</label>
-                <input type="text" class="form-control">
+            <form action="" method="post">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name">
+    <label for="email" class="form-label">Email Id</label>
+    <input type="text" class="form-control" name="email">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password">
+    <br>
+    <button type="submit" name="register" class="btn btn-success">REGISTER</button>
+    <a class="btn btn-warning ms-3" href="index.php">Back to LogIn</a>
+</form>
 
-                <label for="" class="form-label">Username</label>
-                <input type="text" class="form-control">
-                <label for="" class="form-label">Password</label>
-                <input type="password" class="form-control">
-                <br>
-                <button class="btn btn-success">REGISTER</button>
-                <a class="btn btn-warning ms-3" href="index.php">Back to LogIn</a>
 
 
 
@@ -273,3 +274,45 @@
   </body>
 
 </html>
+
+
+<?php
+if (isset($_POST['register'])) {
+    // Database connection
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "user_registration";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $database);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Get form values
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password']; // No hashing for simplicity
+
+    // Insert data into database
+    $sql = "INSERT INTO users (name, email, username, password) VALUES ('$name', '$email', '$username', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script> alert('New user created successfully') </script>";
+    } else {
+      echo "<script> alert('error') </script>";
+
+      echo "<script> window.location.href='index.php' </script>";
+
+
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close connection
+    $conn->close();
+}
+?>

@@ -60,12 +60,15 @@
             <div class="col-md-6 text-md-start text-center py-6">
             
 
-                <label for="" class="form-label">Username</label>
-                <input type="text" class="form-control">
-                <label for="" class="form-label">Password</label>
-                <input type="password" class="form-control">
-                <br>
-                <button class="btn btn-success">LOGIN</button>
+                <form action="" method="post">
+                <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" required>
+        <br>
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+        <br>
+        <button type="submit" class="btn btn-success">Login</button>
+                </form>
                 <a class="btn btn-warning ms-3" href="signup.php">Go To Register</a>
 
 
@@ -274,3 +277,38 @@
 
 
 
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "user_registration";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Query to fetch user from database
+    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+      echo "<script> window.location.href='main.php' </script>";
+
+        // User found, redirect to dashboard or homepage
+    } else {
+        // Invalid credentials, show error message
+        echo "Invalid username or password";
+    }
+}
+
+$conn->close();
+?>
