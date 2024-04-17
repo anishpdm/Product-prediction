@@ -2,23 +2,25 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import joblib
 
-# Load the trained model
-model = joblib.load('inventory_model.pkl')
-
 # Create a Flask app
 app = Flask(__name__)
-# Define a route for prediction
-@app.route('/test', methods=['GET'])
-def predict1():
-    return jsonify({'TEST': "test app"})
 
+# Define a route for testing the app
+@app.route('/test', methods=['GET'])
+def test():
+    return jsonify({'message': 'Test successful'}), 200
 
 # Define a route for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
+    # Load the trained model
+    try:
+        model = joblib.load('inventory_model.pkl')
+    except Exception as e:
+        return jsonify({'error': f'Failed to load model: {e}'}), 500
+
     # Get the request data
     req_data = request.json
-    print("called")
     
     # Validate the request data
     if not req_data:
@@ -28,7 +30,6 @@ def predict():
     try:
         # Extract date and product_id from the request data
         date_str = req_data.get('date')
-        print(date_str)
         product_id = req_data.get('product_id')
         
         # Convert date string to datetime object
@@ -58,4 +59,3 @@ def predict():
 # Run the Flask app
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
-
