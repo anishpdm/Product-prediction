@@ -339,7 +339,7 @@ echo "Converted Date: " . $converted_date . "<br>";
 
           $decoded_response = json_decode($response, true);
   
-          echo "<script> alert('Predicted sales: " . $decoded_response['predictions'] . "') </script>";
+          echo "<script> alert('Predicted sales: " . $decoded_response['predictions'][0] . "') </script>";
   
           // Check for errors
 
