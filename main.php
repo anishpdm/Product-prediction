@@ -313,14 +313,20 @@
 
     if (isset($_POST['predictBtn'])) {
       // Get input values
-      echo $date = $_POST['date'];
-     echo $product_id = $_POST['product_id'];
-     echo "<br";
-  
-      // Convert date format from YYYY-MM-DD to MM/DD/YYYY
-       $converted_date = date("m/d/Y", strtotime($date));
-     echo "converted ";
-     echo $converted_date;
+   // Get input values
+$date = $_POST['date']; // Assuming the input date is in the format "YYYY-MM-DD"
+$product_id = $_POST['product_id'];
+
+// Display input values
+echo "Input Date: " . $date . "<br>";
+echo "Product ID: " . $product_id . "<br>";
+
+// Convert date format from YYYY-MM-DD to MM/DD/YYYY
+$converted_date = date("m/d/Y", strtotime($date));
+
+// Display converted date
+echo "Converted Date: " . $converted_date . "<br>";
+
       // Make sure required data is set
       if (!empty($converted_date) && !empty($product_id)) {
           // Make API call
