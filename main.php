@@ -315,12 +315,14 @@
       // Get input values
       echo $date = $_POST['date'];
       echo $product_id = $_POST['product_id'];
+      echo $converted_date = date("m/d/Y", strtotime($date));
+
   
       // Make sure required data is set
       if (!empty($date) && !empty($product_id)) {
           // Make API call
           $url = 'http://127.0.0.1:5001/predict';
-          $data = array('date' => $date, 'product_id' => $product_id);
+          $data = array('date' => $converted_date, 'product_id' => $product_id);
   
           // Use cURL to make the POST request
           $ch = curl_init();
