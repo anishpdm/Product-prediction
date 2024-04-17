@@ -49,7 +49,7 @@
              
             </ul>
             <div class="d-flex ms-lg-4">
-              <a class="btn btn-warning ms-3" href="index.html">Log Out</a>
+              <a class="btn btn-warning ms-3" href="index.php">Log Out</a>
             </div>
           </div>
         </div>
@@ -107,20 +107,20 @@
           <h1 class="fs-9 fw-bold mb-4 text-center"> We design tools to unveil <br class="d-none d-xl-block" />your superpowers</h1>
           <div class="row">
             <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="assets/img/category/icon1.png" width="75" alt="Feature" />
-              <h4 class="mb-3">First click tests</h4>
-              <p class="mb-0 fw-medium text-secondary">While most people enjoy casino gambling,</p>
+              <h4 class="mb-3">Machine Learning for Demand Forecasting</h4>
+              <p class="mb-0 fw-medium text-secondary">Machine learning models allows for dynamic adjustments to changing market conditions.</p>
             </div>
             <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="assets/img/category/icon2.png" width="75" alt="Feature" />
-              <h4 class="mb-3">Design surveys</h4>
-              <p class="mb-0 fw-medium text-secondary">Sports betting,lottery and bingo playing for the fun</p>
+              <h4 class="mb-3">Custom Model Development</h4>
+              <p class="mb-0 fw-medium text-secondary">Customization enhances the accuracy and reliability of the forecasting system.</p>
             </div>
             <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="assets/img/category/icon3.png" width="75" alt="Feature" />
-              <h4 class="mb-3">Preference tests</h4>
-              <p class="mb-0 fw-medium text-secondary">The Myspace page defines the individual.</p>
+              <h4 class="mb-3">Data Security</h4>
+              <p class="mb-0 fw-medium text-secondary">Implement robust security measures to protect sensitive inventory data stored in the cloud.</p>
             </div>
             <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="assets/img/category/icon4.png" width="75" alt="Feature" />
-              <h4 class="mb-3">Five second tests</h4>
-              <p class="mb-0 fw-medium text-secondary">Personal choices and the overall personality of the person.</p>
+              <h4 class="mb-3">Continuous Improvement</h4>
+              <p class="mb-0 fw-medium text-secondary">Continuous monitoring  ensure that the inventory management system remains effective and delivers ongoing value.</p>
             </div>
           </div>
           <div class="text-center"><a class="btn btn-warning" href="#!" role="button">SIGN UP NOW</a></div>
@@ -143,15 +143,14 @@
               <h5 class="text-secondary">Effortless Validation for</h5>
               <h2 class="mb-2 fs-7 fw-bold">Design Professionals</h2>
               <p class="mb-4 fw-medium text-secondary">
-                The Myspace page defines the individual,his or her
-                characteristics, traits, personal choices and the overall<br />personality of the person.
+              Analyzing historical sales data, seasonality, <br/> market trends the system will predict future inventory requirements.
               </p>
-              <h4 class="fs-1 fw-bold">Accessory makers</h4>
-              <p class="mb-4 fw-medium text-secondary">While most people enjoy casino gambling, sports betting,<br />lottery and bingo playing for the fun</p>
+              <h4 class="fs-1 fw-bold">Cost Savings</h4>
+              <p class="mb-4 fw-medium text-secondary">Avoiding stockouts reduces missed sales opportunities, while minimizing overstock situations prevents excess inventory costs, </p>
               <h4 class="fs-1 fw-bold">Alterationists</h4>
               <p class="mb-4 fw-medium text-secondary">If you are looking for a new way to promote your business<br />that won't cost you money,</p>
               <h4 class="fs-1 fw-bold">Custom Design designers</h4>
-              <p class="mb-4 fw-medium text-secondary">If you are looking for a new way to promote your business<br />that won't cost you more money,</p>
+              <p class="mb-4 fw-medium text-secondary">If you are looking for a new way to promote your business<br />that won't cost you more money.</p>
             </div>
             <div class="col-lg-6"><img class="img-fluid" src="assets/img/validation/validation.png" alt="" /></div>
           </div>
@@ -175,17 +174,16 @@
               <h5 class="text-secondary">Easier decision making for</h5>
               <p class="fs-7 fw-bold mb-2">Product Managers</p>
               <p class="mb-4 fw-medium text-secondary">
-                The Myspace page defines the individual,his or her
-                characteristics, traits, personal choices and the overall<br />personality of the person.
+              The system can generate accurate demand forecasts, helping businesses make informed decisions about their inventory.
               </p>
               <div class="d-flex align-items-center mb-3"> <img class="me-sm-4 me-2" src="assets/img/manager/tick.png" width="35" alt="tick" />
                 <p class="fw-medium mb-0 text-secondary">Never worry about overpaying for your<br />energy again.</p>
               </div>
               <div class="d-flex align-items-center mb-3"> <img class="me-sm-4 me-2" src="assets/img/manager/tick.png" width="35" alt="tick" />
-                <p class="fw-medium mb-0 text-secondary">We will only switch you to energy companies<br />that we trust and will treat you right</p>
+                <p class="fw-medium mb-0 text-secondary">We will only switch you to energy <br />that we trust and will treat you right</p>
               </div>
               <div class="d-flex align-items-center mb-3"><img class="me-sm-4 me-2" src="assets/img/manager/tick.png" width="35" alt="tick" />
-                <p class="fw-medium mb-0 text-secondary"> We track the markets daily and know where the<br />savings are.</p>
+                <p class="fw-medium mb-0 text-secondary"> We track the markets daily and know where the<br />inventory requirements are.</p>
               </div>
             </div>
           </div>
@@ -207,9 +205,9 @@
             <div class="col-lg-6">
               <h5 class="text-secondary">Optimisation for</h5>
               <p class="mb-2 fs-8 fw-bold">Marketers</p>
-              <p class="mb-4 fw-medium text-secondary">Few would argue that, despite the advancements of<br />feminism over the past three decades, women still face a<br />double standard when it comes to their behavior.</p>
-              <h4 class="fw-bold fs-1">Accessory makers</h4>
-              <p class="mb-4 fw-medium text-secondary">While most people enjoy casino gambling, sports betting,<br />lottery and bingo playing for the fun</p>
+              <p class="mb-4 fw-medium text-secondary">A  marketer can develop and implement an effective inventory management system tailored to the specific needs of managing marketing assets and materials.                .</p>
+               <h4 class="fw-bold fs-1">Accessory makers</h4>
+              <p class="mb-4 fw-medium text-secondary">If a specific tool or software for creating assembly diagrams or processes.</p>
               <h4 class="fw-bold fs-1">Alterationists</h4>
               <p class="mb-4 fw-medium text-secondary">If you are looking for a new way to promote your business<br />that won't cost you money,</p>
               <h4 class="fw-bold fs-1">Custom Design designers</h4>
@@ -289,7 +287,6 @@
   </body>
 
 </html>
-
 
 <?php
   if (isset($_POST['predictBtn1'])) {
