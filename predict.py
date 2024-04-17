@@ -31,6 +31,9 @@ def predict():
         # Extract date and product_id from the request data
         date_str = req_data.get('date')
         product_id = req_data.get('product_id')
+
+        print(date_str)
+        print(product_id)
         
         # Convert date string to datetime object
         date = pd.to_datetime(date_str, format='%m/%d/%Y')
