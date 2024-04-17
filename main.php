@@ -78,7 +78,6 @@
 
 <input type="date" name="date" class="form-control">
                 <br>
-                <button class="btn btn-warning me-3 btn-lg" type="submit" name="predictBtn1">Test</button>
 
                 <button class="btn btn-warning me-3 btn-lg" type="submit" name="predictBtn">Forecast product demand</button>
 
