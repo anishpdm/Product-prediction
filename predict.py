@@ -13,6 +13,7 @@ def test():
 # Define a route for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
+    print(" Api CALLED ")
     # Load the trained model
     try:
         model = joblib.load('inventory_model.pkl')
@@ -21,6 +22,7 @@ def predict():
 
     # Get the request data
     req_data = request.json
+    print(req_data)
     
     # Validate the request data
     if not req_data:
@@ -28,6 +30,7 @@ def predict():
     
     # Parse input data into a DataFrame
     try:
+        print(" Date ")
         # Extract date and product_id from the request data
         date_str = req_data.get('date')
         product_id = req_data.get('product_id')
