@@ -11,7 +11,7 @@ def test():
     return jsonify({'message': 'Test successful'}), 200
 
 # Define a route for prediction
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET'])
 def predict():
     print(" Api CALLED ")
     # Load the trained model
@@ -21,19 +21,19 @@ def predict():
         return jsonify({'error': f'Failed to load model: {e}'}), 500
 
     # Get the request data
-    req_data = request.json
-    print(req_data)
+    # req_data = request.json
+    # print(req_data)
     
     # Validate the request data
-    if not req_data:
-        return jsonify({'error': 'No data provided'}), 400
+    # if not req_data:
+    #     return jsonify({'error': 'No data provided'}), 400
     
     # Parse input data into a DataFrame
     try:
         print(" Date ")
         # Extract date and product_id from the request data
-        date_str = req_data.get('date')
-        product_id = req_data.get('product_id')
+        date_str = request.args.get('date')
+        product_id = request.args.get('product_id')
 
         print(date_str)
         print(product_id)
