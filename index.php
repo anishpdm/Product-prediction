@@ -281,7 +281,7 @@
 // Database connection
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "your_new_password";
 $dbname = "user_registration";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

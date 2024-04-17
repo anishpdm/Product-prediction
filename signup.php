@@ -281,7 +281,7 @@ if (isset($_POST['register'])) {
     // Database connection
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "your_new_password";
     $database = "user_registration";
 
     // Create connection
