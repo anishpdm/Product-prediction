@@ -60,13 +60,13 @@
             <div class="col-md-6 text-md-start text-center py-6">
             <form action="" method="post">
     <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" name="name">
+    <input type="text" class="form-control" name="name" required>
     <label for="email" class="form-label">Email Id</label>
-    <input type="text" class="form-control" name="email">
+    <input type="text" class="form-control" name="email" required>
     <label for="username" class="form-label">Username</label>
-    <input type="text" class="form-control" name="username">
+    <input type="text" class="form-control" name="username" required>
     <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" name="password">
+    <input type="password" class="form-control" name="password" required>
     <br>
     <button type="submit" name="register" class="btn btn-success">REGISTER</button>
     <a class="btn btn-warning ms-3" href="index.php">Back to LogIn</a>
