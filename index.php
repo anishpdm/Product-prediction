@@ -305,6 +305,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // User found, redirect to dashboard or homepage
     } else {
+      echo "<script> alert('Invalid username or password') </script>";
+
         // Invalid credentials, show error message
         echo "Invalid username or password";
     }
