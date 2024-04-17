@@ -313,13 +313,14 @@
 
     if (isset($_POST['predictBtn'])) {
       // Get input values
-      echo $date = $_POST['date'];
-      echo $product_id = $_POST['product_id'];
-      echo $converted_date = date("m/d/Y", strtotime($date));
-
+      $date = $_POST['date'];
+      $product_id = $_POST['product_id'];
+  
+      // Convert date format from YYYY-MM-DD to MM/DD/YYYY
+      $converted_date = date("m/d/Y", strtotime($date));
   
       // Make sure required data is set
-      if (!empty($date) && !empty($product_id)) {
+      if (!empty($converted_date) && !empty($product_id)) {
           // Make API call
           $url = 'http://127.0.0.1:5001/predict';
           $data = array('date' => $converted_date, 'product_id' => $product_id);
@@ -361,6 +362,7 @@
           echo "Error: Missing required data (date or product_id)";
       }
   }
+  
   
     
 ?>
