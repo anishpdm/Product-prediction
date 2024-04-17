@@ -309,43 +309,56 @@
 
   }
     // Check if the form is submitted
+
+
     if (isset($_POST['predictBtn'])) {
-        // Get input values
-        echo $date = $_POST['date'];
-        echo $product_id = $_POST['product_id'];
-
-        // Make API call
-        $url = 'http://127.0.0.1:5001/predict';
-        $data = array('date' => $date, 'product_id' => $product_id);
-
-        // Use cURL to make the POST request
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        // Get the response
-        echo $response = curl_exec($ch);
-
-        // Check for errors
-        if(curl_errno($ch)) {
-            $error_message = curl_error($ch);
-            // Handle cURL error
-            echo "cURL Error: $error_message";
-        } else {
-            // Close cURL session
-            curl_close($ch);
-
-            // Decode JSON response
-            $decoded_response = json_decode($response, true);
-
-            // Display prediction result
-            echo '<div>';
-            echo '<h3>Predicted Sales Quantities:</h3>';
-            echo '<p>' . $decoded_response['predicted_sales'] . '</p>';
-            echo '</div>';
-            // You can also use the response data in JavaScript
-            echo "<script> alert('Predicted sales: " . $decoded_response['predicted_sales'] . "') </script>";
-        }
-    }
+      // Get input values
+      echo $date = $_POST['date'];
+      echo $product_id = $_POST['product_id'];
+  
+      // Make sure required data is set
+      if (!empty($date) && !empty($product_id)) {
+          // Make API call
+          $url = 'http://127.0.0.1:5001/predict';
+          $data = array('date' => $date, 'product_id' => $product_id);
+  
+          // Use cURL to make the POST request
+          $ch = curl_init();
+          curl_setopt_array($ch, array(
+              CURLOPT_URL => $url,
+              CURLOPT_POST => true,
+              CURLOPT_POSTFIELDS => json_encode($data),
+              CURLOPT_RETURNTRANSFER => true
+          ));
+  
+          // Execute the request
+          $response = curl_exec($ch);
+  
+          // Check for errors
+          if ($response === false) {
+              $error_message = curl_error($ch);
+              // Handle cURL error
+              echo "cURL Error: $error_message";
+          } else {
+              // Close cURL session
+              curl_close($ch);
+  
+              // Decode JSON response
+              $decoded_response = json_decode($response, true);
+  
+              // Display prediction result
+              echo '<div>';
+              echo '<h3>Predicted Sales Quantities:</h3>';
+              echo '<p>' . $decoded_response['predictions'] . '</p>';
+              echo '</div>';
+              // You can also use the response data in JavaScript
+              echo "<script> alert('Predicted sales: " . $decoded_response['predictions'] . "') </script>";
+          }
+      } else {
+          // Handle missing data error
+          echo "Error: Missing required data (date or product_id)";
+      }
+  }
+  
+    
 ?>
