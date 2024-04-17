@@ -333,18 +333,12 @@ echo "Converted Date: " . $converted_date . "<br>";
           $url = "http://51.21.25.53:5001/predict?date=$converted_date&product_id=$product_id";
           // $data = array('date' => $converted_date, 'product_id' => $product_id);
   
-       echo $response=file_get_contents($url)
+       echo $response=file_get_contents($url);
   
           // Execute the request
 
           $decoded_response = json_decode($response, true);
   
-          // Display prediction result
-          // echo '<div>';
-          // echo '<h3>Predicted Sales Quantities:</h3>';
-          // echo '<p>' . $decoded_response['predictions'] . '</p>';
-          // echo '</div>';
-          // You can also use the response data in JavaScript
           echo "<script> alert('Predicted sales: " . $decoded_response['predictions'] . "') </script>";
   
           // Check for errors
