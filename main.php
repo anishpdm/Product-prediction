@@ -335,7 +335,7 @@ echo "Converted Date: " . $converted_date . "<br>";
 
           $decoded_response = json_decode($response, true);
           $value=$decoded_response['predictions'][0];
-          $final=intval($value)
+          $final=intval($value);
   
           echo "<script> alert('Predicted sales: " . $final . "') </script>";
   
