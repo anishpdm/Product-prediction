@@ -67,11 +67,11 @@
                 <label for="" class="form-label">Select a Product</label>
 
                 <select name="product_id" class="form-control">
-                  <option value="4">Product A</option>
+                  <option value="4">Maggi</option>
 
-                  <option value="2">Product X</option>
-                  <option value="5">Product Y</option>
-                  <option value="9">Product Z</option>
+                  <option value="2"> KitKat</option>
+                  <option value="5">Diary Milk </option>
+                  <option value="9">Oreo Biscuit</option>
                 </select>
                 <br>
                 <label for="" class="form-label">Select a Date</label>
@@ -334,8 +334,10 @@ echo "Converted Date: " . $converted_date . "<br>";
           // Execute the request
 
           $decoded_response = json_decode($response, true);
+          $value=$decoded_response['predictions'][0];
+          $final=intval($value)
   
-          echo "<script> alert('Predicted sales: " . $decoded_response['predictions'][0] . "') </script>";
+          echo "<script> alert('Predicted sales: " . $final . "') </script>";
   
           // Check for errors
 
